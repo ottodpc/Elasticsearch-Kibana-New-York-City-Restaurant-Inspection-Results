@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="nyc-restaurant-inspection-results-analysis-%F0%9F%93%8A%F0%9F%8D%BD%EF%B8%8F">NYC Restaurant Inspection Results Analysis 📊🍽️</h1>
+<h2 id="description-%F0%9F%93%9D">Description 📝</h2>
+<p>Ce projet vise à analyser les données d'inspection des restaurants de New York à l'aide de la pile Elastic (Elasticsearch, Kibana, Filebeat, Metricbeat, Logstash). En utilisant l'API Elastic et les visualisations Kibana, l'objectif est de répondre à une série de questions et d'explorer les violations les plus fréquentes dans les restaurants de la ville.</p>
+<h2 id="table-des-mati%C3%A8res">Table des Matières</h2>
+<ol>
+<li><a href="#instructions">Objectif</a></li>
+<li><a href="#installation-et-configuration">Installation et Configuration</a></li>
+<li><a href="#utilisation-du-projet">Utilisation du Projet</a></li>
+<li><a href="#exemples-de-requ%C3%AAtes-et-visualisations">Exemples de Requêtes et Visualisations</a></li>
+<li><a href="#cr%C3%A9ation-du-dashboard-kibana">Création du Dashboard Kibana</a></li>
+<li><a href="#exportation-du-rapport">Visualisation</a></li>
+</ol>
+<h2 id="objectif-%F0%9F%9B%A0%EF%B8%8F">Objectif 🛠️</h2>
+<p>L’objectif est de répondre aux questions en utilisant l'API Elastic et les visualisations Kibana.</p>
+<p><strong>Liens de référence</strong> :</p>
+<ul>
+<li><a href="https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose">Documentation Elastic Stack Setup</a></li>
+<li><a href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j/about_data">Données d'étude : NYC Restaurant Inspection</a></li>
+</ul>
+<h2 id="installation-et-configuration-delasticsearch-et-kibana">Installation et Configuration d'Elasticsearch et Kibana</h2>
+<h3 id="pr%C3%A9requis">Prérequis</h3>
+<ul>
+<li>Docker et Docker Compose</li>
+<li>Données d'étude : NYC Restaurant Inspection</li>
+</ul>
+<h3 id="%C3%A9tapes-dinstallation">Étapes d'Installation</h3>
+<ol>
+<li>
+<p>Clonez le dépôt :</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/ottodpc/Elasticsearch-Kibana-New-York-City-Restaurant-Inspection-Results.git
+<span class="hljs-built_in">cd</span> Elasticsearch-Kibana-New-York-City-Restaurant-Inspection-Results
+</div></code></pre>
+</li>
+<li>
+<p>Configurez les variables d'environnement dans le fichier <code>.env</code> :</p>
+<pre class="hljs"><code><div>ELASTIC_PASSWORD=ottodpc-azerty123
+KIBANA_PASSWORD=ottodpc-azerty123
+STACK_VERSION=8.7.1
+CLUSTER_NAME=nyc-restaurants-cluster
+LICENSE=basic
+ES_PORT=9200
+KIBANA_PORT=5601
+ES_MEM_LIMIT=1073741824
+KB_MEM_LIMIT=1073741824
+ENCRYPTION_KEY=c34d38b3a14956121ff2170e5030b471551370178f43e5626eec58b04a30fae2
+</div></code></pre>
+</li>
+<li>
+<p>Lancez l'environnement Elastic Stack :</p>
+<pre class="hljs"><code><div>docker-compose up -d --build
+</div></code></pre>
+<p><img src="./img/start.png" alt="Lancement Docker"></p>
+</li>
+</ol>
+<h2 id="utilisation-du-projet">Utilisation du Projet</h2>
+<ol>
+<li>
+<p>Accédez à Kibana sur <code>http://localhost:5601</code> et Elasticsearch sur <code>http://localhost:9200</code>.</p>
+</li>
+<li>
+<p>Importez les données d'inspection de New York :</p>
+<ul>
+<li>Accédez à &quot;Integrations&quot; &gt; &quot;Upload file&quot; et sélectionnez le fichier <code>DOHMH_New_York_City_Restaurant_Inspection_Results.csv</code> via Kibana : <code>http://localhost:5601/app/home#/tutorial_directory/fileDataViz</code></li>
+</ul>
+<p><img src="./img/Elastic-upload-file-data.png" alt="Importation de données"></p>
+<p><strong>Gestion des erreurs</strong> :</p>
+<ul>
+<li>En cas d'erreur de taille de fichier
+<img src="./img/error_File_size_too_large.png" alt="Erreur Importation"></li>
+<li>Augmenter la taille max.
+<img src="./img/error_File_size_too_large_correction.png" alt="Erreur Importation Max size"></li>
+</ul>
+</li>
+</ol>
+<h2 id="exemples-de-requ%C3%AAtes-et-visualisations">Exemples de Requêtes et Visualisations</h2>
+<h3 id="requ%C3%AAtes-elasticsearch-%F0%9F%94%8D">Requêtes Elasticsearch 🔍</h3>
+<h4 id="1-liste-des-quartiers-de-new-york">1. Liste des quartiers de New York</h4>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"neighborhoods"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"NTA"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1000</span>
+      }
+    }
+  }
+}
+</div></code></pre>
+<p><img src="./img/q1.png" alt="Requête 1"></p>
+<h4 id="2-quartier-avec-le-plus-de-restaurants">2. Quartier avec le plus de restaurants</h4>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"neighborhood_with_most_restaurants"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"NTA"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"order"</span>: {
+          <span class="hljs-attr">"_count"</span>: <span class="hljs-string">"desc"</span>
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<p><img src="./img/q2.png" alt="Requête 2"></p>
+<h4 id="3-mapping">3. Mapping</h4>
+<pre class="hljs"><code><div>GET nyc_restaurants/_mapping
+</div></code></pre>
+<p><img src="./img/index_name_nyc_restaurants_mapping_request_test.png" alt="Requête 3"></p>
+<h3 id="autres-requ%C3%AAtes-et-explications">Autres Requêtes et Explications</h3>
+<ul>
+<li>
+<p><strong>Questions avec des requêtes Elastic API</strong> :</p>
+<ul>
+<li>Q1 : List all the neighborhoods in New York.</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"neighborhoods"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"NTA"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1000</span>
+      }
+    }
+  }
+}
+</div></code></pre>
+<p><strong>Explication de la requête :</strong></p>
+<ul>
+<li><strong>&quot;size&quot;: 0</strong> : Seulement des résultats d'agrégation.</li>
+<li><strong>&quot;aggs&quot;</strong> : Une agrégation pour regrouper les données.</li>
+<li><strong>&quot;neighborhoods&quot;</strong> : Nom de l'agrégation, ici nous collectons les quartiers.</li>
+<li><strong>&quot;terms&quot;</strong> : Type d'agrégation utilisée pour regrouper par termes uniques.</li>
+<li><strong>&quot;field&quot;: &quot;NTA&quot;</strong> : Champ sur lequel l'agrégation est effectuée, représentant les quartiers.</li>
+<li><strong>&quot;size&quot;: 1000</strong> : Nombre maximal de termes uniques à retourner, pour s'assurer que tous les quartiers sont inclus.</li>
+</ul>
+<p><img src="./img/q1.png" alt="requete"></p>
+<p>Le résultat de la requête montre une agrégation des quartiers (NTA - Neighborhood Tabulation Areas) de New York, avec chaque quartier identifié par un code (ex. &quot;MN17&quot;, &quot;BK37&quot;) et le nombre d'occurrences de restaurants ou d'inspections pour chacun.</p>
+<ol>
+<li>
+<p><strong>Code du Quartier (key)</strong> : Chaque entrée (ou &quot;bucket&quot;) dans l'agrégation représente un quartier, identifié par son code unique. Par exemple :</p>
+<ul>
+<li><strong>&quot;MN17&quot;</strong> se réfère à un quartier spécifique dans Manhattan, avec un total de 14,356 documents.</li>
+<li><strong>&quot;BK37&quot;</strong> indique un quartier à Brooklyn avec 4,160 documents.</li>
+</ul>
+</li>
+<li>
+<p><strong>Nombre de Documents (doc_count)</strong> : Ce nombre montre combien de fois chaque quartier apparaît dans l'index &quot;nyc_restaurants&quot;. Un chiffre élevé signifie qu'il y a beaucoup d'inspections ou de données concernant des restaurants dans cette zone. Ce champ peut être utilisé pour évaluer la densité d'activités de restauration ou d'inspections dans chaque quartier.</p>
+</li>
+</ol>
+<ul>
+<li>Q2 : Which neighborhood has the most restaurants?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"neighborhood_with_most_restaurants"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"NTA"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"order"</span>: {
+          <span class="hljs-attr">"_count"</span>: <span class="hljs-string">"desc"</span>
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<p><strong>Explication de la requête :</strong></p>
+<ol>
+<li><strong>&quot;size&quot;: 0</strong> : Seulement des résultats d'agrégation.</li>
+<li><strong>&quot;aggs&quot;</strong> : Une agrégation pour répondre à la question.</li>
+<li><strong>&quot;neighborhood_with_most_restaurants&quot;</strong> : Nom de l'agrégation utilisée pour regrouper les données par quartier.</li>
+<li><strong>&quot;terms&quot;</strong> : Type d'agrégation, permettant de compter les occurrences de chaque quartier.</li>
+<li><strong>&quot;field&quot;: &quot;NTA&quot;</strong> : Champ utilisé pour identifier les quartiers.</li>
+<li><strong>&quot;size&quot;: 1</strong> : Limite le retour au quartier ayant le plus grand nombre de documents.</li>
+<li><strong>&quot;order&quot;: { &quot;_count&quot;: &quot;desc&quot; }</strong> : Tri décroissant par nombre de documents pour avoir le quartier avec le plus de restaurants en premier.</li>
+</ol>
+<p><img src="./img/q2.png" alt="requete"></p>
+<p>Le quartier <strong>MN17</strong> a le plus grand nombre de restaurants dans l'ensemble de données. <strong>&quot;key&quot;: &quot;MN17&quot;</strong> : Ce code représente un quartier spécifique de Manhattan (car &quot;MN&quot; correspond à Manhattan). <strong>&quot;doc_count&quot;: 14356</strong> : Il y a 14,356 documents associés à ce quartier, ce qui représente le nombre total de restaurants dans cette zone. Cela signifie que MN17 est la zone avec le plus grand nombre de restaurants enregistrés dans l'index.</p>
+<ul>
+<li>Q3 : What does the violation code &quot;04N&quot; correspond to?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"query"</span>: {
+    <span class="hljs-attr">"term"</span>: {
+      <span class="hljs-attr">"VIOLATION CODE"</span>: <span class="hljs-string">"04N"</span>
+    }
+  },
+  <span class="hljs-attr">"_source"</span>: [<span class="hljs-string">"VIOLATION DESCRIPTION"</span>],
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>
+}
+</div></code></pre>
+<p><strong>Explication de la requête :</strong></p>
+<ol>
+<li><strong>&quot;query&quot;: { &quot;term&quot;: { &quot;VIOLATION CODE&quot;: &quot;04N&quot; } }</strong> : Nous utilisons une requête <code>term</code> pour rechercher exactement le code de violation &quot;04N&quot; dans le champ <code>VIOLATION CODE</code>.</li>
+<li><strong>&quot;_source&quot;: [&quot;VIOLATION DESCRIPTION&quot;]</strong> : Nous limitons les champs retournés aux seules descriptions des violations (pour réduire le volume de données inutiles).</li>
+<li><strong>&quot;size&quot;: 1</strong> : Cette valeur est fixée à 1 car nous n'avons besoin que d'un document pour obtenir la description du code &quot;04N&quot;.</li>
+</ol>
+<p><img src="./img/q3.png" alt="requete"></p>
+<p>Cette description montre que la violation &quot;04N&quot; est liée à des infestations de mouches ou autres nuisances de type insectes dans des zones où cela pourrait présenter un risque pour l'hygiène alimentaire. Cette information est essentielle pour comprendre le type de problème que &quot;04N&quot; représente dans le contexte des inspections sanitaires des restaurants, car elle concerne des insectes nuisibles qui pourraient compromettre la sécurité alimentaire.</p>
+<ul>
+<li>Q4 : Where are the restaurants (name, address, neighborhood) that have a grade of A?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"query"</span>: {
+    <span class="hljs-attr">"term"</span>: {
+      <span class="hljs-attr">"GRADE"</span>: <span class="hljs-string">"A"</span>
+    }
+  },
+  <span class="hljs-attr">"_source"</span>: [<span class="hljs-string">"DBA"</span>, <span class="hljs-string">"BUILDING"</span>, <span class="hljs-string">"STREET"</span>, <span class="hljs-string">"ZIPCODE"</span>, <span class="hljs-string">"NTA"</span>],
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">100</span>
+}
+</div></code></pre>
+<h3 id="la-requ%C3%AAte">La requête :</h3>
+<ol>
+<li><strong>&quot;query&quot;: { &quot;term&quot;: { &quot;GRADE&quot;: &quot;A&quot; } }</strong> : La requête utilise un filtre <code>term</code> pour sélectionner uniquement les documents où le champ <code>GRADE</code> est égal à &quot;A&quot;.</li>
+<li><strong>&quot;_source&quot;: [&quot;DBA&quot;, &quot;BUILDING&quot;, &quot;STREET&quot;, &quot;ZIPCODE&quot;, &quot;NTA&quot;]</strong> : Nous limitons les champs retournés aux informations essentielles :
+<ul>
+<li><strong>&quot;DBA&quot;</strong> : Nom du restaurant.</li>
+<li><strong>&quot;BUILDING&quot;</strong> et <strong>&quot;STREET&quot;</strong> : Adresse du restaurant.</li>
+<li><strong>&quot;ZIPCODE&quot;</strong> : Code postal pour plus de précision.</li>
+<li><strong>&quot;NTA&quot;</strong> : Quartier (Neighborhood Tabulation Area) où le restaurant est situé.</li>
+</ul>
+</li>
+<li><strong>&quot;size&quot;: 100</strong> : Limite le nombre de résultats retournés à 100 pour éviter de surcharger la réponse. Il est possible d'ajuster cette limite si nécessaire.</li>
+</ol>
+<p><img src="./img/q4.png" alt="requete"></p>
+<p>Le résultat présente une liste de restaurants notés &quot;A&quot;, classés sans ordre spécifique. Chaque entrée fournit :</p>
+<p><strong>Nom du restaurant*</strong> : Permet de reconnaître l’établissement (utile pour des recommandations ou des analyses de qualité).
+<strong><em>Adresse complète</em></strong> : Inclut le numéro de bâtiment, la rue et le code postal, facilitant la localisation géographique.
+<strong><em>Quartier</em></strong> : Le code NTA permet de situer chaque restaurant dans un quartier précis de New York, ce qui peut aider à analyser la distribution de la note A dans les différents quartiers.</p>
+<ul>
+<li>Q5 : What is the most popular cuisine? And by neighborhood?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"most_popular_cuisine"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"CUISINE DESCRIPTION"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"order"</span>: {
+          <span class="hljs-attr">"_count"</span>: <span class="hljs-string">"desc"</span>
+        }
+      }
+    },
+    <span class="hljs-attr">"popular_cuisine_by_neighborhood"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"NTA"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">100</span>
+      },
+      <span class="hljs-attr">"aggs"</span>: {
+        <span class="hljs-attr">"top_cuisine_in_neighborhood"</span>: {
+          <span class="hljs-attr">"terms"</span>: {
+            <span class="hljs-attr">"field"</span>: <span class="hljs-string">"CUISINE DESCRIPTION"</span>,
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"order"</span>: {
+              <span class="hljs-attr">"_count"</span>: <span class="hljs-string">"desc"</span>
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<p><img src="./img/q5.png" alt="requete"></p>
+<p>Le résultat révèle une forte prévalence de la cuisine américaine, tant au niveau global qu’au sein de nombreux quartiers spécifiques. Cependant, certains quartiers montrent des préférences culinaires différentes, reflétant une diversité culturelle. Par exemple :</p>
+<ul>
+<li><strong>Cuisine chinoise</strong> dans certains quartiers de Queens (ex. QN22).</li>
+<li><strong>Cuisine caribéenne</strong> dans plusieurs quartiers de Brooklyn (ex. BK61, BK50).</li>
+<li><strong>Cuisine Jewish/Kosher</strong> également bien représentée dans certains quartiers de Brooklyn (BK25, BK88).</li>
+</ul>
+<p>Cela montre non seulement les préférences globales, mais aussi des préférences culinaires spécifiques à chaque quartier, permettant une analyse précise de la répartition des types de cuisines à travers la ville de New York.</p>
+<ul>
+<li>Q6 : What is the date of the last inspection?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"sort"</span>: [
+    {
+      <span class="hljs-attr">"INSPECTION DATE"</span>: {
+        <span class="hljs-attr">"order"</span>: <span class="hljs-string">"desc"</span>
+      }
+    }
+  ],
+  <span class="hljs-attr">"_source"</span>: [<span class="hljs-string">"INSPECTION DATE"</span>]
+}
+</div></code></pre>
+<h3 id="la-requ%C3%AAte">La requête :</h3>
+<ol start="2">
+<li><strong>&quot;sort&quot;</strong> : Nous trions les documents par date d’inspection (<code>INSPECTION DATE</code>) en ordre décroissant (<code>&quot;order&quot;: &quot;desc&quot;</code>), de sorte que la date la plus récente apparaisse en premier.</li>
+<li><strong>&quot;_source&quot;: [&quot;INSPECTION DATE&quot;]</strong> : Nous limitons le retour aux informations sur la date d’inspection uniquement, pour réduire le volume de données inutiles.</li>
+</ol>
+<p><img src="./img/q6.png" alt="requete"></p>
+<p>Le résultat montre que la dernière inspection enregistrée a eu lieu le <strong>11 juillet 2024</strong>.</p>
+<ul>
+<li>Q7 : Provide a list of Chinese restaurants with an A grade in Brooklyn.</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"query"</span>: {
+    <span class="hljs-attr">"bool"</span>: {
+      <span class="hljs-attr">"must"</span>: [
+        { <span class="hljs-attr">"term"</span>: { <span class="hljs-attr">"GRADE"</span>: <span class="hljs-string">"A"</span> } },
+        { <span class="hljs-attr">"term"</span>: { <span class="hljs-attr">"CUISINE DESCRIPTION"</span>: <span class="hljs-string">"Chinese"</span> } },
+        { <span class="hljs-attr">"term"</span>: { <span class="hljs-attr">"BORO"</span>: <span class="hljs-string">"BROOKLYN"</span> } }
+      ]
+    }
+  },
+  <span class="hljs-attr">"_source"</span>: [<span class="hljs-string">"DBA"</span>, <span class="hljs-string">"BUILDING"</span>, <span class="hljs-string">"STREET"</span>, <span class="hljs-string">"ZIPCODE"</span>, <span class="hljs-string">"CUISINE DESCRIPTION"</span>, <span class="hljs-string">"GRADE"</span>],
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">100</span>
+}
+</div></code></pre>
+<h3 id="la-requ%C3%AAte">La requête :</h3>
+<ol>
+<li>
+<p><strong>&quot;query&quot;: { &quot;bool&quot;: { &quot;must&quot;: [...] } }</strong> : Nous utilisons une requête booléenne avec des conditions <code>must</code> pour filtrer selon plusieurs critères.</p>
+<ul>
+<li><strong>{ &quot;term&quot;: { &quot;GRADE&quot;: &quot;A&quot; } }</strong> : Filtre les restaurants ayant une note &quot;A&quot;.</li>
+<li><strong>{ &quot;term&quot;: { &quot;CUISINE DESCRIPTION&quot;: &quot;Chinese&quot; } }</strong> : Filtre les restaurants de cuisine chinoise.</li>
+<li><strong>{ &quot;term&quot;: { &quot;BORO&quot;: &quot;BROOKLYN&quot; } }</strong> : Limite les résultats aux restaurants situés dans le quartier de Brooklyn.</li>
+</ul>
+</li>
+<li>
+<p><strong>&quot;_source&quot;: [...]</strong> : Limite les champs retournés aux informations nécessaires :</p>
+<ul>
+<li><strong>&quot;DBA&quot;</strong> : Nom commercial du restaurant.</li>
+<li><strong>&quot;BUILDING&quot;</strong> et <strong>&quot;STREET&quot;</strong> : Adresse du restaurant.</li>
+<li><strong>&quot;ZIPCODE&quot;</strong> : Code postal.</li>
+<li><strong>&quot;CUISINE DESCRIPTION&quot;</strong> et <strong>&quot;GRADE&quot;</strong> : Confirme la cuisine et la note.</li>
+</ul>
+</li>
+<li>
+<p><strong>&quot;size&quot;: 100</strong> : Retourne jusqu'à 100 résultats. Ce nombre peut être ajusté selon le besoin.</p>
+</li>
+</ol>
+<p><img src="./img/q7.png" alt="requete"></p>
+<p>Aucun restaurant ne correspond aux critères de recherche. L'absence de résultats peut signifier plusieurs choses :</p>
+<ul>
+<li>
+<p><strong>Aucun restaurant chinois avec une note A</strong> n'a été enregistré à Brooklyn dans cet index particulier. Cela peut être dû à un manque de données pour cette combinaison spécifique dans l'index &quot;nyc_restaurants&quot;.</p>
+</li>
+<li>
+<p><strong>Problème potentiel de données</strong> : Il est possible que les informations ne soient pas complètement mises à jour ou que la nomenclature soit incorrecte dans certains champs (par exemple, des variations dans les noms des cuisines ou dans la façon dont le borough est codé).</p>
+<ul>
+<li>
+<p>Q8 : What is the address of the restaurant LADUREE?
+IMAGES :</p>
+</li>
+<li>
+<p>requete ./img/q8.png</p>
+<p>Pour obtenir l'adresse du restaurant <strong>LADUREE</strong>, voici la requête Elasticsearch appropriée pour Kibana DevTools :</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"query"</span>: {
+    <span class="hljs-attr">"match"</span>: {
+      <span class="hljs-attr">"DBA"</span>: <span class="hljs-string">"LADUREE"</span>
+    }
+  },
+  <span class="hljs-attr">"_source"</span>: [<span class="hljs-string">"DBA"</span>, <span class="hljs-string">"BUILDING"</span>, <span class="hljs-string">"STREET"</span>, <span class="hljs-string">"ZIPCODE"</span>, <span class="hljs-string">"BORO"</span>],
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>
+}
+</div></code></pre>
+<h3 id="la-requ%C3%AAte">la requête :</h3>
+<ol>
+<li><strong>&quot;query&quot;: { &quot;match&quot;: { &quot;DBA&quot;: &quot;LADUREE&quot; } }</strong> : Utilisation d’une requête <code>match</code> pour rechercher le nom &quot;LADUREE&quot; dans le champ <code>DBA</code> (nom commercial).</li>
+<li><strong>&quot;_source&quot;: [...]</strong> : Limitation des champs retournés aux informations d’adresse essentielles :
+<ul>
+<li><strong>&quot;DBA&quot;</strong> : Nom commercial (pour confirmation),</li>
+<li><strong>&quot;BUILDING&quot;</strong> et <strong>&quot;STREET&quot;</strong> : Numéro et rue de l’adresse,</li>
+<li><strong>&quot;ZIPCODE&quot;</strong> : Code postal,</li>
+<li><strong>&quot;BORO&quot;</strong> : Arrondissement (borough) du restaurant.</li>
+</ul>
+</li>
+<li><strong>&quot;size&quot;: 1</strong> : Nous limitons le retour à un seul document, car nous ne cherchons qu’une seule occurrence pour &quot;LADUREE&quot;.</li>
+</ol>
+<p><img src="./img/q8.png" alt="requete"></p>
+<p>Le résultat montre qu’un restaurant <strong>Laduree</strong> est situé au <strong>20 Hudson Yards, Manhattan, New York, 10001</strong>.</p>
+<ul>
+<li>Q9 : What cuisine is most affected by the violation &quot;Hot food item not held at or above 140º F&quot;?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"query"</span>: {
+    <span class="hljs-attr">"match"</span>: {
+      <span class="hljs-attr">"VIOLATION DESCRIPTION"</span>: <span class="hljs-string">"Hot food item not held at or above 140º F"</span>
+    }
+  },
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"most_affected_cuisine"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"CUISINE DESCRIPTION"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"order"</span>: {
+          <span class="hljs-attr">"_count"</span>: <span class="hljs-string">"desc"</span>
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<h3 id="la-requ%C3%AAte">La requête :</h3>
+<ol>
+<li><strong>&quot;size&quot;: 0</strong> : Nous n'avons pas besoin des documents individuels, seulement des résultats d'agrégation.</li>
+<li><strong>&quot;query&quot;</strong> : Filtre pour sélectionner les documents qui contiennent la description de violation &quot;Hot food item not held at or above 140º F&quot;.
+<ul>
+<li><strong>&quot;match&quot;: { &quot;VIOLATION DESCRIPTION&quot;: &quot;Hot food item not held at or above 140º F&quot; }</strong> : Utilise une requête <code>match</code> pour rechercher la description exacte de la violation.</li>
+</ul>
+</li>
+<li><strong>&quot;aggs&quot;</strong> : Définition de l'agrégation pour identifier le type de cuisine le plus fréquemment associé à cette violation.
+<ul>
+<li><strong>&quot;most_affected_cuisine&quot;</strong> : Nom de l'agrégation pour collecter les informations.</li>
+<li><strong>&quot;terms&quot;</strong> : Type d'agrégation <code>terms</code> qui regroupe par cuisine.
+<ul>
+<li><strong>&quot;field&quot;: &quot;CUISINE DESCRIPTION&quot;</strong> : Champ utilisé pour identifier les types de cuisine.</li>
+<li><strong>&quot;size&quot;: 1</strong> : Limite le retour au type de cuisine le plus fréquent pour cette violation.</li>
+<li><strong>&quot;order&quot;: { &quot;_count&quot;: &quot;desc&quot; }</strong> : Trie par ordre décroissant pour obtenir le type de cuisine le plus touché en premier.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="./img/q9.png" alt="requete"></p>
+<p>Le résultat de la requête montre que la cuisine <strong>américaine</strong> est la plus affectée par la violation <strong>&quot;Hot food item not held at or above 140º F&quot;</strong> dans les données des restaurants de New York. Ce chiffre élevé de 39,570 occurrences pourrait indiquer une vigilance accrue nécessaire dans la gestion de la température des plats dans les restaurants de cuisine américaine, par rapport à d'autres types de cuisines.</p>
+<ol>
+<li>
+<p><strong>Résumé de la requête</strong> :</p>
+<ul>
+<li><code>&quot;took&quot;: 390</code> : La requête a pris 390 millisecondes pour s'exécuter.</li>
+<li><code>&quot;timed_out&quot;: false</code> : La requête s’est terminée sans délai d’attente.</li>
+<li><code>_shards</code> : La requête a été exécutée sans échec sur un seul fragment, confirmant que tous les résultats sont disponibles.</li>
+</ul>
+</li>
+<li>
+<p><strong>Résultats de la recherche (hits)</strong> :</p>
+<ul>
+<li><code>&quot;total&quot;: { &quot;value&quot;: 10000, &quot;relation&quot;: &quot;gte&quot; }</code> : L’index contient au moins 10,000 documents correspondant à cette violation.</li>
+<li><code>&quot;max_score&quot;: null</code> et <code>&quot;hits&quot;: []</code> : Aucun document individuel n'est retourné, car la requête a été configurée pour ne retourner que les agrégations.</li>
+</ul>
+</li>
+<li>
+<p><strong>Agrégation &quot;most_affected_cuisine&quot;</strong> :</p>
+<ul>
+<li><strong>&quot;doc_count_error_upper_bound&quot;: 0</strong> : Il n’y a pas d'erreur dans le comptage, ce qui signifie que les résultats sont exacts.</li>
+<li><strong>&quot;sum_other_doc_count&quot;: 205191</strong> : Le nombre total de documents associés à d'autres types de cuisines affectés par cette violation s'élève à 205,191, montrant que de nombreuses autres cuisines sont également concernées.</li>
+<li><strong>&quot;buckets&quot;</strong> : Contient les résultats classés des cuisines les plus affectées.
+<ul>
+<li><strong>&quot;key&quot;: &quot;American&quot;</strong> : La cuisine américaine est la plus touchée par cette violation.</li>
+<li><strong>&quot;doc_count&quot;: 39570</strong> : La violation <strong>&quot;Hot food item not held at or above 140º F&quot;</strong> a été enregistrée 39,570 fois dans des restaurants de cuisine américaine, ce qui en fait la cuisine la plus affectée par cette infraction.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Q10 : What are the most common violations (Top 5)?</li>
+</ul>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"top_violations"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"VIOLATION CODE"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">5</span>
+      },
+      <span class="hljs-attr">"aggs"</span>: {
+        <span class="hljs-attr">"violation_description"</span>: {
+          <span class="hljs-attr">"top_hits"</span>: {
+            <span class="hljs-attr">"_source"</span>: {
+              <span class="hljs-attr">"includes"</span>: [<span class="hljs-string">"VIOLATION DESCRIPTION"</span>]
+            },
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>
+          }
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<ul>
+<li><strong>&quot;size&quot;: 0</strong> : Nous définissons cette valeur sur zéro car nous ne nous intéressons qu'aux résultats de l'agrégation, pas aux documents individuels.</li>
+<li><strong>Agrégation sur <code>VIOLATION CODE</code></strong> :
+<ul>
+<li><strong>&quot;field&quot;: &quot;VIOLATION CODE&quot;</strong> : regroupe les documents en fonction des codes de violation.</li>
+<li><strong>&quot;size&quot;: 5</strong> : limite l'agrégation aux 5 codes de violation les plus courants.</li>
+</ul>
+</li>
+<li><strong>Sous-agrégation <code>violation_description</code></strong> :
+<ul>
+<li><strong>&quot;top_hits&quot;</strong> : récupère les principaux documents pour chaque compartiment.</li>
+<li><strong>&quot;_source&quot;: { &quot;includes&quot;: [&quot;VIOLATION DESCRIPTION&quot;] }</strong> : Inclut uniquement le champ <code>VIOLATION DESCRIPTION</code> dans les résultats.</li>
+<li><strong>&quot;size&quot;: 1</strong> : Récupère un document par code de violation, en supposant que la description est cohérente pour chaque code.</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/q10.png" alt="requete"></p>
+<p>La requête identifie avec succès les cinq violations les plus courantes du code de la santé dans les restaurants de New York, offrant ainsi des informations précieuses sur les domaines qui nécessitent une attention immédiate pour protéger la santé publique. En tenant compte de la précision et du rappel, nous garantissons que les résultats sont exacts et complets, répondant directement à la question initiale.</p>
+<ul>
+<li>Q11 : What is the most popular restaurant chain?</li>
+</ul>
+<p><img src="./img/q11_error.png" alt="requete"><br>
+<img src="./img/q11_correct.png" alt="requete"></p>
+<h3 id="%C3%A9tape-1--mettre-%C3%A0-jour-le-mappage-pour-inclure-%C2%AB-dbakeyword-%C2%BB">Étape 1 : Mettre à jour le mappage pour inclure « DBA.keyword »</h3>
+<ol>
+<li>
+<p><strong>Créez un nouvel index avec le mappage mis à jour</strong>. Cet index aura le champ « DBA » mis à jour pour inclure un sous-champ « key » pour les agrégations.</p>
+<pre class="hljs"><code><div>PUT nyc_restaurants_v2
+{
+  <span class="hljs-attr">"mappings"</span>: {
+    <span class="hljs-attr">"properties"</span>: {
+      <span class="hljs-attr">"@timestamp"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"date"</span>
+      },
+      <span class="hljs-attr">"ACTION"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"text"</span>
+      },
+      <span class="hljs-attr">"BBL"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"BIN"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"BORO"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"BUILDING"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"CAMIS"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"CRITICAL FLAG"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"CUISINE DESCRIPTION"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"Census Tract"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"Community Board"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"Council District"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"DBA"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"text"</span>,
+        <span class="hljs-attr">"fields"</span>: {
+          <span class="hljs-attr">"keyword"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>,
+            <span class="hljs-attr">"ignore_above"</span>: <span class="hljs-number">256</span>
+          }
+        }
+      },
+      <span class="hljs-attr">"GRADE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"GRADE DATE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"date"</span>,
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"MM/dd/yyyy"</span>
+      },
+      <span class="hljs-attr">"INSPECTION DATE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"date"</span>,
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"MM/dd/yyyy"</span>
+      },
+      <span class="hljs-attr">"INSPECTION TYPE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"Latitude"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"double"</span>
+      },
+      <span class="hljs-attr">"Longitude"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"double"</span>
+      },
+      <span class="hljs-attr">"NTA"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"PHONE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"RECORD DATE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"date"</span>,
+        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"MM/dd/yyyy"</span>
+      },
+      <span class="hljs-attr">"SCORE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"long"</span>
+      },
+      <span class="hljs-attr">"STREET"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"VIOLATION CODE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"VIOLATION DESCRIPTION"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"text"</span>
+      },
+      <span class="hljs-attr">"ZIPCODE"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"keyword"</span>
+      },
+      <span class="hljs-attr">"location"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"geo_point"</span>
+      }
+    }
+  }
+}
+</div></code></pre>
+</li>
+<li>
+<p><strong>Réindexez les données de l'ancien index (<code>nyc_restaurants</code>) vers le nouvel index (<code>nyc_restaurants_v2</code>)</strong> :</p>
+<pre class="hljs"><code><div>POST _reindex
+{
+  <span class="hljs-attr">"source"</span>: {
+    <span class="hljs-attr">"index"</span>: <span class="hljs-string">"nyc_restaurants"</span>
+  },
+  <span class="hljs-attr">"dest"</span>: {
+    <span class="hljs-attr">"index"</span>: <span class="hljs-string">"nyc_restaurants_v2"</span>
+  }
+}
+</div></code></pre>
+</li>
+<li>
+<p><strong>Supprimer l'ancien index</strong></p>
+<pre class="hljs"><code><div>DELETE nyc_restaurants
+</div></code></pre>
+</li>
+<li>
+<p><strong>Renommer l'index</strong></p>
+<pre class="hljs"><code><div>POST /_aliases
+{
+  <span class="hljs-attr">"actions"</span>: [
+    { <span class="hljs-attr">"remove"</span>: { <span class="hljs-attr">"index"</span>: <span class="hljs-string">"nyc_restaurants_v2"</span>, <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"nyc_restaurants"</span> } },
+    { <span class="hljs-attr">"add"</span>: { <span class="hljs-attr">"index"</span>: <span class="hljs-string">"nyc_restaurants_v2"</span>, <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"nyc_restaurants"</span> } }
+  ]
+}
+</div></code></pre>
+</li>
+</ol>
+<h3 id="step-2-ex%C3%A9cution-de-la-requ%C3%AAte-dagr%C3%A9gation-pour-trouver-la-cha%C3%AEne-de-restaurants-la-plus-populaire">Step 2: Exécution de la requête d'agrégation pour trouver la chaîne de restaurants la plus populaire</h3>
+<p>Maintenant que nous avons réindexé avec le mappage correct, nous pouvons utiliser la requête suivante pour trouver la chaîne de restaurants la plus populaire en comptant les occurrences uniques de « DBA.keyword »:</p>
+<pre class="hljs"><code><div>GET nyc_restaurants/_search
+{
+  <span class="hljs-attr">"size"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"aggs"</span>: {
+    <span class="hljs-attr">"popular_restaurants"</span>: {
+      <span class="hljs-attr">"terms"</span>: {
+        <span class="hljs-attr">"field"</span>: <span class="hljs-string">"DBA.keyword"</span>,
+        <span class="hljs-attr">"size"</span>: <span class="hljs-number">1</span>
+      },
+      <span class="hljs-attr">"aggs"</span>: {
+        <span class="hljs-attr">"unique_locations"</span>: {
+          <span class="hljs-attr">"cardinality"</span>: {
+            <span class="hljs-attr">"field"</span>: <span class="hljs-string">"CAMIS"</span>
+          }
+        }
+      }
+    }
+  }
+}
+</div></code></pre>
+<ol>
+<li><strong>Chaîne la plus populaire par emplacements uniques</strong> : avec « 366 » emplacements uniques, « DUNKIN » est la chaîne de restaurants la plus populaire de l'ensemble de données.</li>
+<li><strong>Fréquence des inspections ou des enregistrements</strong> : Le « doc_count » de « 3193 » suggère que les sites Dunkin ont eu plusieurs enregistrements ou inspections dans l'ensemble de données, ce qui reflète la grande présence de la chaîne à New York.</li>
+</ol>
+<h2 id="cr%C3%A9ation-du-dashboard-kibana">Création du Dashboard Kibana</h2>
+<ol>
+<li>
+<p><strong>Ajoutez des filtres</strong> sur le type de cuisine, le quartier, et le grade pour affiner les résultats.</p>
+</li>
+<li>
+<p><strong>Création de visualisations</strong> :</p>
+<ul>
+<li>Utilisez des cartes pour afficher la répartition géographique des types de cuisine.</li>
+<li>Ajoutez des graphiques pour les violations les plus fréquentes et les grades par quartier.</li>
+</ul>
+<p><img src="./img/Cuisine-type-Neighborhood-Rank_map.png" alt="Carte des Types de Cuisine"></p>
+</li>
+</ol>
+<p><strong>Export de la visualisation Kibana</strong> :</p>
+<ul>
+<li><a href="./data/export/Cuisinetype-Neighborhood-Rank-MAP-VISUALISATION.ndjson">Visualisation Kibana</a></li>
+</ul>
+<p>👤 <strong>Auteur</strong> : OTTO Dieu-Puissant Cyprien</p>
+
+</body>
+</html>
